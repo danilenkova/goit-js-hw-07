@@ -1,9 +1,13 @@
 const inputEl = document.querySelector('#name-input');
+const nameLabel = document.querySelector('#name-output');
+const labelValue = nameLabel.textContent;
 
-inputEl.addEventListener('input', event => {
-    if (event.currentTarget.value !== '') {
-        document.querySelector('#name-output').innerHTML = event.currentTarget.value;
+inputEl.addEventListener('input', onClickChange);
+
+function onClickChange(event) {
+    if (this.value !== '') {
+        nameLabel.textContent = this.value.trim();
     } else {
-        document.querySelector('#name-output').innerHTML = `незнакомец`;
+        nameLabel.textContent = labelValue;
     }
-});
+}
